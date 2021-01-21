@@ -39,3 +39,4 @@ hs_err_pid*
 /jarRepositories.xml
 /vcs.xml
 /misc.xml
+../target/*
