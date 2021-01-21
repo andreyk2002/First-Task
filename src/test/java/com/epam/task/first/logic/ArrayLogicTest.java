@@ -13,13 +13,6 @@ public class ArrayLogicTest {
     private final ArrayLogic logic = new ArrayLogic();
 
     @Test
-    public void testFindMaxShouldFindWhenSingleNumberApplied(){
-        Array<Integer> a = new Array<>(0);
-        int actual = logic.findMax(a);
-        Assert.assertEquals(actual, 0);
-    }
-
-    @Test
     public void testFindMaxShouldFindWhenMultipleNumbersApplied(){
         Array<Integer> a = new Array<>(1, 4, 5, 2);
         int actual = logic.findMax(a);
@@ -30,13 +23,6 @@ public class ArrayLogicTest {
     public void testFindMaxShouldThrowAnExceptionWhenArrayIsEmpty(){
         Array<Integer> a = new Array<>();
         logic.findMax(a);
-    }
-
-    @Test
-    public void testCountAverageShouldCountWhenSingleNumberApplied(){
-        Array<Integer> a = new Array<>(1);
-        double actual = logic.countAverage(a);
-        Assert.assertEquals(actual,1.0);
     }
 
     @Test
@@ -53,13 +39,6 @@ public class ArrayLogicTest {
     }
 
     @Test
-    public void testCountSumShouldCountWhenSingleNumberApplied(){
-        Array<Integer> a = new Array<>(1);
-        long actual = logic.countSum(a);
-        Assert.assertEquals(actual,1);
-    }
-
-    @Test
     public void testCountSumShouldCountWhenMultipleNumbersApplied(){
         Array<Integer> a = new Array<>(1, -5, 6);
         long actual = logic.countSum(a);
@@ -70,13 +49,6 @@ public class ArrayLogicTest {
     public void testCountSumShouldWhenArrayIsEmpty(){
         Array<Integer>a = new Array<Integer>();
         logic.countSum(a);
-    }
-
-    @Test
-    public void testCountNumberOfPositivesWhenOnePositiveNumberApplied(){
-        Array<Integer> a = new Array<>(1);
-        long actual = logic.countNumberOfPositives(a);
-        Assert.assertEquals(actual,1);
     }
 
     @Test
@@ -91,13 +63,6 @@ public class ArrayLogicTest {
         Array<Integer> a = new Array<>();
         long actual = logic.countNumberOfPositives(a);
         Assert.assertEquals(actual,0);
-    }
-
-    @Test
-    public void testCountNumberOfNegativesWhenOneNegativeNumberApplied(){
-        Array<Integer> a = new Array<>(-1);
-        int actual = logic.countNumberOfNegatives(a);
-        Assert.assertEquals(actual,1);
     }
 
     @Test
@@ -140,5 +105,4 @@ public class ArrayLogicTest {
         List<Integer>expected = Arrays.asList();
         Assert.assertEquals(actual, expected);
     }
-
 }
