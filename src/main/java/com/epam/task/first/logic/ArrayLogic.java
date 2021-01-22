@@ -1,91 +1,84 @@
 package com.epam.task.first.logic;
 
 import com.epam.task.first.entities.Array;
+import com.epam.task.first.exceptions.ArrayIsEmptyException;
 
 import java.util.List;
 
 
 public class ArrayLogic {
 
-    public int findMax(final Array<Integer> a) {
-        List<Integer> elements = a.getElements();
-        if (elements.isEmpty()) {
-            throw new IllegalArgumentException();
-        }
-        return getMax(elements);
-    }
-
-    public double countAverage(final Array<Integer> a) {
-        List<Integer> elements = a.getElements();
-        if (elements.isEmpty()) {
-            throw new IllegalArgumentException();
-        }
-        return getAverage(elements);
-    }
-
-    public long countSum(final Array<Integer> a) {
-        List<Integer> elements = a.getElements();
-        if (elements.isEmpty()) {
-            throw new IllegalArgumentException();
-        }
-        long sum = 0;
-        for (int e : elements) {
-            sum += e;
-        }
-        return sum;
-    }
-
-    public long countNumberOfPositives(final Array<Integer> a) {
-        int result = 0;
-        List<Integer> elements = a.getElements();
-        for (int e : elements) {
-            if (e > 0) {
-                result++;
-            }
-        }
-        return result;
-    }
-
-    public int countNumberOfNegatives(final Array<Integer> a) {
-        int result = 0;
-        List<Integer> elements = a.getElements();
-        for (int e : elements) {
-            if (e < 0) {
-                result++;
-            }
-        }
-        return result;
-    }
-
-    public void replaceEvenNumbers(Array<Integer> a, int newValue) {
-        List<Integer> elements = a.getElements();
-        for (int i = 0; i < elements.size(); i++) {
-            if(isEven(elements.get(i))){
-                elements.set(i,newValue);
-            }
-        }
-    }
-
-    private int getMax(final List<Integer> a) {
-        int max = a.get(0);
-        for (int e : a) {
-            if (e > max) {
-                max = e;
+    public int findMax(Array<Integer> array) throws ArrayIsEmptyException {
+        List<Integer> elements = array.getElements();
+        checkArray(elements);
+        int max = elements.get(0);
+        for (int element : elements) {
+            if (element > max) {
+                max = element;
             }
         }
         return max;
+
     }
 
-    private double getAverage(final List<Integer> elements) {
+    public double countAverage(Array<Integer> array) throws ArrayIsEmptyException {
+        List<Integer> elements = array.getElements();
+        checkArray(elements);
         double result = 0;
-        for (int e : elements) {
-            result += e;
+        for (int element : elements) {
+            result += element;
         }
         result /= elements.size();
         return result;
     }
 
-    private boolean isEven(final int e) {
+    public long countSum(Array<Integer> array) {
+        List<Integer> elements = array.getElements();
+        long sum = 0;
+        for (int element : elements) {
+            sum += element;
+        }
+        return sum;
+    }
+
+    public long sumNegative(Array<Integer> array) {
+        int result = 0;
+        List<Integer> elements = array.getElements();
+        for (int element : elements) {
+            if (element > 0) {
+                result++;
+            }
+        }
+        return result;
+    }
+
+    public int sumPositive(Array<Integer> array) {
+        int result = 0;
+        List<Integer> elements = array.getElements();
+        for (int element : elements) {
+            if (element < 0) {
+                result++;
+            }
+        }
+        return result;
+    }
+
+    public void replaceEvenNumbers(Array<Integer> array, int newValue) {
+        List<Integer> elements = array.getElements();
+        for (int i = 0; i < elements.size(); i++) {
+            if (isEven(elements.get(i))) {
+                elements.set(i, newValue);
+            }
+        }
+    }
+
+    private void checkArray(List<Integer> elements) throws ArrayIsEmptyException {
+        if(elements.isEmpty()){
+            throw new ArrayIsEmptyException("Can't find maximum when array is empty");
+        }
+    }
+
+    private boolean isEven(int e) {
         return e % 2 == 0;
     }
 }
