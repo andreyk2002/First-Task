@@ -18,4 +18,29 @@ public class Array<Integer> {
         return elements;
     }
 
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((elements == null) ? 0 : elements.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        Array<Integer> other = (Array<Integer>) obj;
+        if (elements == null && other.elements != null) {
+            return false;
+        }
+        return elements.equals(other.elements);
+    }
 }
