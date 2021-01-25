@@ -4,8 +4,7 @@ import com.epam.task.first.entities.Array;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static java.util.Collections.swap;
+import java.util.Collections;
 
 
 public class SelectionSorter implements Sorter{
@@ -24,7 +23,7 @@ public class SelectionSorter implements Sorter{
                     minPosition = j;
                 }
             }
-            swap(elements, i, minPosition);
+            Collections.swap(elements, i, minPosition);
             newElements.add(min);
         }
         return new Array<>(newElements);
