@@ -4,8 +4,7 @@ import com.epam.task.first.entities.Array;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static java.util.Collections.swap;
+import java.util.Collections;
 
 public class QuickSorter implements Sorter {
 
@@ -38,7 +37,7 @@ public class QuickSorter implements Sorter {
                 currentRight--;
             }
             if (currentLeft <= currentRight) {
-                swap(elements, currentLeft, currentRight);
+                Collections.swap(elements, currentLeft, currentRight);
                 currentLeft++;
                 currentRight--;
             }
