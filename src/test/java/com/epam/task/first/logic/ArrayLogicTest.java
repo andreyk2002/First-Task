@@ -17,7 +17,7 @@ public class ArrayLogicTest {
     }
 
     @Test
-    public void testCountAverageShouldCountWhenMultipleNumberApplied()  {
+    public void testCountAverageShouldCountWhenMultipleNumberApplied() {
         Array<Integer> array = new Array<>(2, 3, 3, 4);
         double actual = logic.countAverage(array);
         Assert.assertEquals(actual, 3);
@@ -69,7 +69,7 @@ public class ArrayLogicTest {
     public void testReplaceEvenNumbersWhenMultipleEvenApplied() {
         Array<Integer> array = new Array<>(2, 2, 7);
         Array<Integer> actual = logic.replaceEvenNumbers(array, 1);
-        Array<Integer>expected = new Array<>(1,1,7);
+        Array<Integer> expected = new Array<>(1, 1, 7);
         Assert.assertEquals(actual, expected);
     }
 

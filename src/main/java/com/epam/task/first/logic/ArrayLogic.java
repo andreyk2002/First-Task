@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ArrayLogic {
 
-    public int findMax(Array<Integer> array){
+    public int findMax(Array<Integer> array) {
         List<Integer> elements = array.getElements();
         int max = elements.get(0);
         for (int element : elements) {
@@ -60,17 +60,17 @@ public class ArrayLogic {
         return result;
     }
 
-    public Array replaceEvenNumbers(Array<Integer> array, int newValue) {
+    public Array<Integer> replaceEvenNumbers(Array<Integer> array, int newValue) {
         List<Integer> elements = array.getElements();
-        List<Integer>newElements = new ArrayList<>();
-        for (int i = 0; i < elements.size(); i++) {
-            if (isEven(elements.get(i))) {
+        List<Integer> newElements = new ArrayList<>();
+        for (Integer element : elements) {
+            if (isEven(element)) {
                 newElements.add(newValue);
-            }else{
-                newElements.add(elements.get(i));
+            } else {
+                newElements.add(element);
             }
         }
-        return new Array(newElements);
+        return new Array<>(newElements);
     }
 
     private boolean isEven(int number) {
