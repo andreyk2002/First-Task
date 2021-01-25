@@ -37,10 +37,9 @@ public class Array<Integer> {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        Array<Integer> other = (Array<Integer>) obj;
-        if (elements == null && other.elements != null) {
-            return false;
-        }
-        return elements.equals(other.elements);
+        Array other = (Array) obj;
+        if (elements == null) {
+            return other.elements == null;
+        } else return elements.equals(other.elements);
     }
 }
